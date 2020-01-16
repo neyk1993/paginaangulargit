@@ -27,6 +27,7 @@ export class InfopaginaService {
        this.http.get('assets/data/data-pagina.json')
        .subscribe( (resp:InfoPagina) => {
          this.cargada=true;
+         console.log(resp);
          this.info=resp;
 
        });
@@ -36,7 +37,7 @@ export class InfopaginaService {
 
        this.http.get('https://proyecto-e8ec7.firebaseio.com/equipo.json')
        .subscribe(resp => {
-       
+       console.log(resp);
          this.equipo=resp;
 
        });
