@@ -36,9 +36,10 @@ export class InfopaginaService {
    private  cargarequipo(){
 
        this.http.get('https://proyecto-e8ec7.firebaseio.com/equipo.json')
-       .subscribe(resp => {
+       .subscribe((resp: any[]) => {
        console.log(resp);
          this.equipo=resp;
+         
 
        });
    }

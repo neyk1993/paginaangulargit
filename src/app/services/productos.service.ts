@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Productos } from '../interfaces/productos.service';
+import { Producto } from '../interfaces/producto.interface';
 
 
 
@@ -11,6 +11,9 @@ export class ProductosService {
 
 
 	cargando = true;
+  productos:Producto[]=[];
+
+
   constructor(private http:HttpClient) { 
 
 
@@ -21,8 +24,9 @@ export class ProductosService {
   private cargarproductos () {
 
   	this.http.get('https://proyecto-e8ec7.firebaseio.com/productos_idx.json')
-  	.subscribe((resp : Productos[]) => {
+  	.subscribe((resp: Producto[]) => {
        this.cargando= false;
+       this.productos=resp
         console.log(resp);
 
        });
